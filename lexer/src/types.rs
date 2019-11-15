@@ -19,7 +19,7 @@ pub trait ITokenizer {
     fn next_token(&self, item: &str) -> Token;
 }
 
-pub trait ILexerr {
+pub trait ILexer {
     fn new(input: Vec<char>) -> Self;
     fn run(&mut self) -> Vec<Token>;
 }

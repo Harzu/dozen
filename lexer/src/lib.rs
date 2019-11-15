@@ -4,7 +4,7 @@ mod lexer;
 mod tokenizer;
 
 use lexer::Lexer;
-use types::ILexerr;
+use types::ILexer;
 
 pub fn run(file_path: &str) {
     let file_content = file::get_file_content(&file_path);

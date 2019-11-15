@@ -8,7 +8,7 @@ pub struct Lexer {
     length: usize,
 }
 
-impl ILexerr for Lexer {
+impl ILexer for Lexer {
     fn new(input: Vec<char>) -> Self {
         let length = input.len();
         let tokenizer = Tokenizer::new();
@@ -63,10 +63,11 @@ impl Lexer {
             
             match target_token {
                 Token::WORD(_) => {
+                    token = target_token;
+                    
                     self.next_position();
                     let current_char = self.peek(0);
                     buffer.push(current_char);
-                    token = target_token;
                     continue;
                 },
                 // TODO: fix for more reused format
