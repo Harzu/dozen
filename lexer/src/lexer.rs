@@ -8,20 +8,21 @@ pub struct Lexer {
     length: usize,
 }
 
-impl Lexer {
-    pub fn new(input: Vec<char>) -> Self {
+impl ILexerr for Lexer {
+    fn new(input: Vec<char>) -> Self {
         let length = input.len();
         let tokenizer = Tokenizer::new();
+        let initial_position = 0;
         
         Lexer {
             input,
-            position: 0,
+            length,
             tokenizer,
-            length
+            position: initial_position,
         }
     }
 
-    pub fn run(&mut self) -> Vec<Token> {
+    fn run(&mut self) -> Vec<Token> {
         let mut res: Vec<Token> = Vec::new();
 
         while self.position != self.length {
@@ -49,7 +50,9 @@ impl Lexer {
 
         res
     }
+}
 
+impl Lexer {
     fn tokenize_word(&mut self, head: &str) -> Token {
         let mut token = Token::WORD(head.to_string());
         let mut buffer = String::new();
