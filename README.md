@@ -1,1 +1,1 @@
-# Dozen - simple compiler for simple lang =)
+# Implementation simple lexical analyser

@@ -1,5 +1,15 @@
-[workspace]
+[package]
+name = "simple_lexer"
+version = "0.0.1"
+authors = ["Ilya fanyShu <ilyashvy@gmail.com>"]
+edition = "2018"
 
-members = [
-    'lexer'
-]
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "dozenl"
+path = "bin/main.rs"
+
+[dependencies]
+regex = "1"
